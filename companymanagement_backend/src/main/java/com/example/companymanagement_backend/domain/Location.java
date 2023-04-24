@@ -40,8 +40,8 @@ public class Location {
     @JoinColumn(name = "country_id")
     private Country country;// 국가
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "department")
-    private Department department;// 부서
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "location")
+    private Department department;
 
     // ** setter ** //
 
@@ -64,6 +64,7 @@ public class Location {
     public void addDepartment(Department department) {
         this.department = department;
     }
+
     // ** 연관관계 메서드 ** //
 
     public void addCountry(Country country) {

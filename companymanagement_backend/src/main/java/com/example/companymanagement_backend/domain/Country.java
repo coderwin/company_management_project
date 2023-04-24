@@ -37,6 +37,7 @@ public class Country {
     private Location location;// 위치 정보
 
     // ** setter ** //
+
     public void addName(String name) {
         this.name = name;
     }

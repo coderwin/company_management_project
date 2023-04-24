@@ -44,15 +44,12 @@ public class Department {
     public void addName(String name) {
         this.name = name;
     }
-
     public void addManagerId(Long managerId) {
         this.managerId = managerId;
     }
-
     public void addJobHistory(JobHistory jobHistory) {
         this.jobHistory = jobHistory;
     }
-
     public void addEmployee(Employee employee) {
         this.employee = employee;
     }

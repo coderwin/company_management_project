@@ -33,6 +33,9 @@ public class Region {
     private Country country;// 국가 정보
 
     // ** setter ** //
+    public void addId(Long id) {
+        this.id = id;
+    }
     public void addName(String name) {
         this.name = name;
     }
@@ -43,6 +46,7 @@ public class Region {
     // ** 생성 메서드 ** //
 
     public static Region createRegion(String name) {
+
         Region region = new Region();
 
         region.addName(name);

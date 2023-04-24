@@ -40,7 +40,10 @@ public class Employee {
     private String phoneNumber;// 휴대폰번호
     @NotNull
     private Date hireDate;// 입사날짜
+    @NotNull
+    @Column(precision = 8, scale = 2)
     private BigDecimal salary;// 급여
+    @Column(precision = 2, scale = 2)
     private BigDecimal commissionPct;// 수수료 퍼센트?
     private Long manager_id;// 관리번호
 
@@ -55,7 +58,6 @@ public class Employee {
     private JobHistory jobHistory;// 직원 직급 정보
 
     // ** setter ** //
-
     public void addFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -92,7 +94,6 @@ public class Employee {
         this.jobHistory = jobHistory;
     }
 
-
     // ** 연관관계 메서드 ** //
 
     public void addDepartment(Department department) {
@@ -106,7 +107,6 @@ public class Employee {
     }
 
     // ** 생성 메서드 ** //
-
 
     public static Employee createEmployee(
             String firstName,
