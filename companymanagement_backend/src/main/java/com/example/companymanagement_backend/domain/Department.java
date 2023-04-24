@@ -38,4 +38,37 @@ public class Department {
     private JobHistory jobHistory;// 직원 직급 정보
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "department")
     private Employee employee;// 직원 정보
+
+    // ** setter ** //
+
+    public void addName(String name) {
+        this.name = name;
+    }
+    public void addManagerId(Long managerId) {
+        this.managerId = managerId;
+    }
+    public void addJobHistory(JobHistory jobHistory) {
+        this.jobHistory = jobHistory;
+    }
+    public void addEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    // ** 연관관계 메서드 ** //
+    public void addLocation(Location location) {
+        location.addDepartment(this);
+        this.location = location;
+    }
+
+    // ** 생성 메서드 ** //
+    public static Department createDepartment(String name, Long managerId, Location location) {
+
+        Department department = new Department();
+
+        department.addName(name);
+        department.addManagerId(managerId);
+        department.addLocation(location);
+
+        return department;
+    }
 }
