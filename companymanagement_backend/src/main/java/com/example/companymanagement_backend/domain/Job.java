@@ -44,20 +44,25 @@ public class Job {
     public void addTitle(String title) {
         this.title = title;
     }
+
     public void addMinSalary(BigDecimal minSalary) {
         this.minSalary = minSalary;
     }
+
     public void addMaxSalary(BigDecimal maxSalary) {
         this.maxSalary = maxSalary;
     }
+
     public void addJobHistory(JobHistory jobHistory) {
         this.jobHistory = jobHistory;
     }
+
     public void addEmployee(Employee employee) {
         this.employee = employee;
     }
 
     // ** 생성 메서드 ** //
+
     public static Job createJob(String title, BigDecimal minSalary, BigDecimal maxSalary) {
 
         Job job = new Job();

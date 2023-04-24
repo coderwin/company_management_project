@@ -44,6 +44,7 @@ public class Region {
     }
 
     // ** 생성 메서드 ** //
+
     public static Region createRegion(String name) {
 
         Region region = new Region();

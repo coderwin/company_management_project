@@ -89,11 +89,13 @@ public class Employee {
     public void addManager_id(Long manager_id) {
         this.manager_id = manager_id;
     }
+
     public void addJobHistory(JobHistory jobHistory) {
         this.jobHistory = jobHistory;
     }
 
     // ** 연관관계 메서드 ** //
+
     public void addDepartment(Department department) {
         department.addEmployee(this);
         this.department = department;
@@ -104,33 +106,33 @@ public class Employee {
         this.job = job;
     }
 
-
     // ** 생성 메서드 ** //
-    public static Employee createEmployee(String firstName,
-                                          String lastName,
-                                          String email,
-                                          String phoneNumber,
-                                          Date hireDate,
-                                          BigDecimal salary,
-                                          BigDecimal commissionPct,
-                                          Long manager_id,
-                                          Department department,
-                                          Job job) {
+
+    public static Employee createEmployee(
+            String firstName,
+            String lastName,
+            String email,
+            String phoneNumber,
+            Date hireDate,
+            BigDecimal salary,
+            BigDecimal commissionPct,
+            Long manager_id,
+            Department department,
+            Job job) {
 
         Employee employee = new Employee();
 
-        employee.addFirstName(firstName);// 성
-        employee.addLastName(lastName);// 이름
-        employee.addEmail(email);// 이메일
-        employee.addPhoneNumber(phoneNumber);// 휴대폰번호
-        employee.addHireDate(hireDate);// 입사날짜
-        employee.addSalary(salary);// 급여
-        employee.addCommissionPct(commissionPct);// 수수료 퍼센트?
-        employee.addManager_id(manager_id);// 관리번호
-        employee.addDepartment(department);// 부서
-        employee.addJob(job);// 직급
+        employee.addFirstName(firstName);
+        employee.addLastName(lastName);
+        employee.addEmail(email);
+        employee.addPhoneNumber(phoneNumber);
+        employee.addHireDate(hireDate);
+        employee.addSalary(salary);
+        employee.addCommissionPct(commissionPct);
+        employee.addManager_id(manager_id);
+        employee.addDepartment(department);
+        employee.addJob(job);
 
         return employee;
     }
-
 }

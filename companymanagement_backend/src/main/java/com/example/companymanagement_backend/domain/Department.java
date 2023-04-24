@@ -55,12 +55,15 @@ public class Department {
     }
 
     // ** 연관관계 메서드 ** //
+
     public void addLocation(Location location) {
         location.addDepartment(this);
         this.location = location;
     }
 
+
     // ** 생성 메서드 ** //
+
     public static Department createDepartment(String name, Long managerId, Location location) {
 
         Department department = new Department();

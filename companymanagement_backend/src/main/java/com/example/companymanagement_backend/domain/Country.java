@@ -52,6 +52,7 @@ public class Country {
     }
 
     // ** 생성 메서드 ** //
+
     public static Country createCountry(String name, Region region) {
 
         Country country = new Country();

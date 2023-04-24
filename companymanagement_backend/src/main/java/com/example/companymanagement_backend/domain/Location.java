@@ -48,26 +48,32 @@ public class Location {
     public void addStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
     }
+
     public void addPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
+
     public void addCity(String city) {
         this.city = city;
     }
+
     public void addStateProvince(String stateProvince) {
         this.stateProvince = stateProvince;
     }
+
     public void addDepartment(Department department) {
         this.department = department;
     }
 
     // ** 연관관계 메서드 ** //
+
     public void addCountry(Country country) {
         country.addLocation(this);
         this.country = country;
     }
 
     // ** 생성 메서드 ** //
+
     public static Location createLocation(String streetAddress, String postalCode, String city, String stateProvince, Country country) {
 
         Location location = new Location();
