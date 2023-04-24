@@ -36,4 +36,39 @@ public class Job {
     private JobHistory jobHistory;// 직원 직급 정보
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "job")
     private Employee employee;// 직원 정보
+
+    // ** setter ** //
+
+    public void addTitle(String title) {
+        this.title = title;
+    }
+
+    public void addMinSalary(BigDecimal minSalary) {
+        this.minSalary = minSalary;
+    }
+
+    public void addMaxSalary(BigDecimal maxSalary) {
+        this.maxSalary = maxSalary;
+    }
+
+    public void addJobHistory(JobHistory jobHistory) {
+        this.jobHistory = jobHistory;
+    }
+
+    public void addEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    // ** 생성 메서드 ** //
+
+    public static Job createJob(String title, BigDecimal minSalary, BigDecimal maxSalary) {
+
+        Job job = new Job();
+
+        job.addTitle(title);
+        job.addMinSalary(minSalary);
+        job.addMaxSalary(maxSalary);
+
+        return job;
+    }
 }

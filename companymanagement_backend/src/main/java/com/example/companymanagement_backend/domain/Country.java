@@ -35,4 +35,30 @@ public class Country {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "country")
     private Location location;// 위치 정보
+
+    // ** setter ** //
+    public void addName(String name) {
+        this.name = name;
+    }
+    public void addLocation(Location location) {
+        this.location = location;
+    }
+
+    // ** 연관관계 메서드 ** //
+    public void addRegion(Region region) {
+        region.addCountry(this);
+        this.region = region;
+    }
+
+    // ** 생성 메서드 ** //
+
+    public static Country createCountry(String name, Region region) {
+
+        Country country = new Country();
+
+        country.addName(name);
+        country.addRegion(region);
+
+        return country;
+    }
 }
