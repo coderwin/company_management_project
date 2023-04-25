@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
+import static com.example.companymanagement_backend.domain.QCountry.country;
 import static com.example.companymanagement_backend.domain.QDepartment.department;
 import static com.example.companymanagement_backend.domain.QLocation.location;
 
@@ -39,6 +40,7 @@ public class DepartmentJpaRepositoryImpl implements DepartmentJpaRepositoryCusto
         Department findDepartment = query
                 .selectFrom(department)
                 .join(department.location, location)
+                .join(location.country, country)
                 .where(department.id.eq(id))
                 .fetchOne();
         // Optional return
