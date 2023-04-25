@@ -48,7 +48,7 @@ public class Employee {
     private BigDecimal salary;// 급여
     @Column(precision = 2, scale = 2)
     private BigDecimal commissionPct;// 수수료 퍼센트?
-    private Long manager_id;// 관리번호
+    private Long managerId;// 관리번호
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "department_id")
@@ -89,8 +89,8 @@ public class Employee {
         this.commissionPct = commissionPct;
     }
 
-    public void addManager_id(Long manager_id) {
-        this.manager_id = manager_id;
+    public void addManager_id(Long managerId) {
+        this.managerId = managerId;
     }
 
 
