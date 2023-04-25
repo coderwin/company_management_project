@@ -7,16 +7,17 @@ import javax.validation.constraints.NotNull;
 import java.sql.Date;
 
 /**
- * 직원 직급 정보
+ * 직원 이력 정보
  * writer : 이호진
  * init : 2023.04.24
- * updated by writer :
- * update :
- * description : 직원 직급 정보를 정의한다.
+ * updated by writer : 이호진
+ * update : 2023.04.25
+ * description : 직원 이력 정보를 정의한다.
  *
  * comment :
  *
- * update :
+ * update : employee와의 연관관계를 변경
+ *          OneToOne -> ManyToOne
  */
 @Entity
 @Getter
@@ -29,12 +30,19 @@ public class JobHistory {
     private Date endDate;// 해당 직급 마지막 날짜
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "employee_id")
-    private Employee employee;// 직원
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "job_id")
     private Job job;// 직급
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "department_id")
     private Department department;// 부서
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "employee_id")
+    private Employee employee;// 직원
+
+    // ** setter ** //
+
+    public void addEmployee(Employee employee) {
+        this.employee = employee;
+    }
 }
