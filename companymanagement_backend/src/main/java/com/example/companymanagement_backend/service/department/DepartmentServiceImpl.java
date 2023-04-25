@@ -28,6 +28,7 @@ public class DepartmentServiceImpl implements DepartmentService {
      * description : 부서 및 위치 정보 불러오기
      *               id : 부서 아이디
      */
+    @Override
     public DepartmentDetailForm watchDetail(Long id) {
         // Department 불러오기
         Department findDepartment = departmentJpaRepository.findDepartmentAndLocationById(id).orElseThrow();
@@ -42,6 +43,7 @@ public class DepartmentServiceImpl implements DepartmentService {
      * update :
      * description : 모든 부서 불러오기
      */
+    @Override
     public List<DepartmentListForm> selectList() {
         // 모든 부서 불러오기
         List<Department> departments = departmentJpaRepository.findAll();
