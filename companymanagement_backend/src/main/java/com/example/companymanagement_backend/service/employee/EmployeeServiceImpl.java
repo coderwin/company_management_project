@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -30,6 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * update :
      * description : 현재 직원 정보 상세보기
      */
+    @Override
     public EmployeeDetailForm watchDetail(Long id) {
         // 직원 정보 불러오기
         Employee findEmployee = employeeJpaRepository.findDetailInfoById(id).orElseThrow();
@@ -44,6 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * update :
      * description : 직원의 이력 정보 보기
      */
+    @Override
     public EmployeeJobHistoriesFrom WatchJobHistory(Long id) {
         // 직원의 이력 정보 List 가져오기
         Employee findEmployee = employeeJpaRepository.findById(id).orElseThrow();
@@ -60,6 +61,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * update :
      * description : 모든 직원 불러오기
      */
+    @Override
     public List<EmployeeSummaryForm> selectList() {
         // 모든 직원 불러오기
         List<Employee> employees = employeeJpaRepository.findAll();
