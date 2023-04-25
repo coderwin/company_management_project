@@ -4,6 +4,8 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 부서 정보
@@ -36,8 +38,9 @@ public class Department {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "department")
     private JobHistory jobHistory;// 직원 직급 정보
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "department")
-    private Employee employee;// 직원 정보
+
+    @OneToMany(mappedBy = "department", cascade = CascadeType.PERSIST)
+    private List<Employee> employeeList = new ArrayList<>();// 직원 정보
 
     // ** setter ** //
 
@@ -50,9 +53,6 @@ public class Department {
     public void addJobHistory(JobHistory jobHistory) {
         this.jobHistory = jobHistory;
     }
-    public void addEmployee(Employee employee) {
-        this.employee = employee;
-    }
 
     // ** 연관관계 메서드 ** //
 
@@ -60,7 +60,6 @@ public class Department {
         location.addDepartment(this);
         this.location = location;
     }
-
 
     // ** 생성 메서드 ** //
 
