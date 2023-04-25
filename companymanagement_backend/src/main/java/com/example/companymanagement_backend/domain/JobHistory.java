@@ -42,7 +42,9 @@ public class JobHistory {
 
     // ** setter ** //
 
+    // ** 연관관계 메서드 ** //
     public void addEmployee(Employee employee) {
+        employee.getJobHistoryList().add(this);
         this.employee = employee;
     }
 }

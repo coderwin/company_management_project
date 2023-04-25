@@ -50,7 +50,7 @@ public class Employee {
     private BigDecimal commissionPct;// 수수료 퍼센트?
     private Long managerId;// 관리번호
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "department_id")
     private Department department;// 부서
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
@@ -89,7 +89,7 @@ public class Employee {
         this.commissionPct = commissionPct;
     }
 
-    public void addManager_id(Long managerId) {
+    public void addManagerId(Long managerId) {
         this.managerId = managerId;
     }
 
@@ -97,17 +97,13 @@ public class Employee {
     // ** 연관관계 메서드 ** //
 
     public void addDepartment(Department department) {
-        department.addEmployee(this);
+        department.getEmployeeList().add(this);
         this.department = department;
     }
 
     public void addJob(Job job) {
         job.addEmployee(this);
         this.job = job;
-    }
-    public void addJobHistoryList(JobHistory jobHistory) {
-        jobHistory.addEmployee(this);
-        this.jobHistoryList.add(jobHistory);
     }
 
     // ** 생성 메서드 ** //
@@ -120,7 +116,7 @@ public class Employee {
             Date hireDate,
             BigDecimal salary,
             BigDecimal commissionPct,
-            Long manager_id,
+            Long managerId,
             Department department,
             Job job) {
 
@@ -133,7 +129,7 @@ public class Employee {
         employee.addHireDate(hireDate);
         employee.addSalary(salary);
         employee.addCommissionPct(commissionPct);
-        employee.addManager_id(manager_id);
+        employee.addManagerId(managerId);
         employee.addDepartment(department);
         employee.addJob(job);
 
