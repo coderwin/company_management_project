@@ -39,8 +39,8 @@ public class DepartmentJpaRepositoryImpl implements DepartmentJpaRepositoryCusto
         // Department 불러오기
         Department findDepartment = query
                 .selectFrom(department)
-                .join(department.location, location)
-                .join(location.country, country)
+                .join(department.location, location).fetchJoin()
+                .join(location.country, country).fetchJoin()
                 .where(department.id.eq(id))
                 .fetchOne();
         // Optional return
