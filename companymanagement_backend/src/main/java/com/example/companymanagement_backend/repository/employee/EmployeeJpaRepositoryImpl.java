@@ -47,6 +47,7 @@ public class EmployeeJpaRepositoryImpl implements EmployeeJpaRepositoryCustom {
                 .join(location.country, country).fetchJoin()
                 .join(country.region, region).fetchJoin()
                 .join(employee.job, job).fetchJoin()
+                .where(employee.id.eq(id))
                 .fetchOne();
         // Optional을 return
         return Optional.ofNullable(findEmployee);
