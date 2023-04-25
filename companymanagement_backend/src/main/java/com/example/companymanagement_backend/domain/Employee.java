@@ -6,18 +6,21 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 직원 정보
  * writer : 이호진
  * init : 2023.04.24
- * updated by writer :
- * update :
+ * updated by writer : 이호진
+ * update : 2023.04.25
  * description : 직원 정보를 정의한다.
  *
  * comment :
  *
- * update :
+ * update : jobHistory와의 연관관계를 변경
+ *          OneToOne -> OneToMany
  */
 @Entity
 @Getter
@@ -54,8 +57,8 @@ public class Employee {
     @JoinColumn(name = "job_id")
     private Job job;// 직급
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "employee")
-    private JobHistory jobHistory;// 직원 직급 정보
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.PERSIST)
+    private List<JobHistory> jobHistoryList = new ArrayList<>();// 직원 이력 정보 모음
 
     // ** setter ** //
     public void addFirstName(String firstName) {
@@ -90,9 +93,6 @@ public class Employee {
         this.manager_id = manager_id;
     }
 
-    public void addJobHistory(JobHistory jobHistory) {
-        this.jobHistory = jobHistory;
-    }
 
     // ** 연관관계 메서드 ** //
 
@@ -104,6 +104,10 @@ public class Employee {
     public void addJob(Job job) {
         job.addEmployee(this);
         this.job = job;
+    }
+    public void setJobHistoryList(JobHistory jobHistory) {
+        jobHistory.addEmployee(this);
+        this.jobHistoryList.add(jobHistory);
     }
 
     // ** 생성 메서드 ** //
