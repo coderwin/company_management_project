@@ -54,4 +54,23 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         return departmentListFormList;
     }
+
+    /**
+     * writer : 이호진
+     * init : 2023.04.26
+     * updated by writer :
+     * update :
+     * description : 특정 부서의 급여를 특정 비율로 인상하기
+     *               id : 부서 아이디
+     *               increacedPct : 인상 비율
+     */
+    @Override
+    @Transactional(readOnly = false)
+    public void increaseSalary(Long id, Integer increasedPct) {
+        // department 불러오기
+        Department findDepartment = departmentJpaRepository.findById(id).orElseThrow();
+        // 특정 부서 급여 인상하기
+        findDepartment.increaseSalary(increasedPct);
+
+    }
 }

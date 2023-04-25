@@ -135,4 +135,33 @@ public class Employee {
 
         return employee;
     }
+
+    // ** 비즈니스 로직 ** //
+    /**
+     * writer : 이호진
+     * init : 2023.04.26
+     * updated by writer :
+     * update :
+     * description : 특정 부서의 급여를 특정 비율로 인상하기
+     *               increacedPct : 인상 비율
+     *
+     * comment : 소수점 두 자리까지만 나오게 하는 방법 생각해보기
+     */
+    public void increaseSalary(Integer increasedPct) {
+
+        double increasedRate = searchIncreasedRate(increasedPct);// 인상된 비율
+        // BigDecimal로 변환
+        BigDecimal increasedRateBigDecimal = BigDecimal.valueOf(increasedRate);
+        // 인상된 비율로 인상된 봉급 찾기
+        BigDecimal increasedMoney = salary.multiply(increasedRateBigDecimal);
+        // 인상된 금액 더하기
+        salary = salary.add(increasedMoney);
+    }
+
+    private double searchIncreasedRate(Integer increasedPct) {
+        // %를 소수점으로 변경
+        double increasedRate = increasedPct / 100.0;
+
+        return increasedRate;
+    }
 }

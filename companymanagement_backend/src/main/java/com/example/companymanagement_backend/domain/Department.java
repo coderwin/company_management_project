@@ -73,4 +73,18 @@ public class Department {
 
         return department;
     }
+
+    // ** 비즈니스 로직 ** //
+    /**
+     * writer : 이호진
+     * init : 2023.04.26
+     * updated by writer :
+     * update :
+     * description : 특정 부서의 급여를 특정 비율로 인상하기
+     *               increacedPct : 인상 비율
+     */
+    public void increaseSalary(Integer increasedPct) {
+        // 직원들의 연봉을 올리기
+        employeeList.forEach((e) -> e.increaseSalary(increasedPct));
+    }
 }
