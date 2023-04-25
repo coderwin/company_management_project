@@ -105,7 +105,7 @@ public class Employee {
         job.addEmployee(this);
         this.job = job;
     }
-    public void setJobHistoryList(JobHistory jobHistory) {
+    public void addJobHistoryList(JobHistory jobHistory) {
         jobHistory.addEmployee(this);
         this.jobHistoryList.add(jobHistory);
     }
