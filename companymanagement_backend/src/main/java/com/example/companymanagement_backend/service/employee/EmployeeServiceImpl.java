@@ -45,7 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * description : 직원의 이력 정보 보기
      */
     @Override
-    public EmployeeJobHistoriesFrom WatchJobHistory(Long id) {
+    public EmployeeJobHistoriesFrom watchJobHistory(Long id) {
         // 직원의 이력 정보 List 가져오기
         Employee findEmployee = employeeJpaRepository.findById(id).orElseThrow();
         // EmployeeJobHistoriesFrom으로 변경하기

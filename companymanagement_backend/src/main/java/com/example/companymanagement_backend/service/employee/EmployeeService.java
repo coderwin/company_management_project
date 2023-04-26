@@ -32,7 +32,7 @@ public interface EmployeeService {
      * update :
      * description : 직원의 이력 정보 보기
      */
-    EmployeeJobHistoriesFrom WatchJobHistory(Long id);
+    EmployeeJobHistoriesFrom watchJobHistory(Long id);
 
     /**
      * writer : 이호진
