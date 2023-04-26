@@ -5,6 +5,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
 import java.util.Optional;
 
 import static com.example.companymanagement_backend.domain.QCountry.country;
@@ -51,6 +52,25 @@ public class EmployeeJpaRepositoryImpl implements EmployeeJpaRepositoryCustom {
                 .fetchOne();
         // Optional을 return
         return Optional.ofNullable(findEmployee);
+    }
+
+    /**
+     * writer : 이호진
+     * init : 2023.04.26
+     * updated by writer :
+     * update :
+     * description : 모든 직원 정보 불러오기
+     */
+    @Override
+    public List<Employee> findAllInfo() {
+        // Employee 불러오기
+        List<Employee> result = query
+                .select(employee)
+                .from(employee)
+                .join(employee.department, department).fetchJoin()
+                .fetch();
+
+        return result;
     }
 
 }

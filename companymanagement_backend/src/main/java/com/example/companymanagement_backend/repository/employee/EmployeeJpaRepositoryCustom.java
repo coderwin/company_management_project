@@ -2,6 +2,7 @@ package com.example.companymanagement_backend.repository.employee;
 
 import com.example.companymanagement_backend.domain.Employee;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,4 +24,13 @@ public interface EmployeeJpaRepositoryCustom {
      *               id : 직원 아이디
      */
     Optional<Employee> findDetailInfoById(Long id);
+
+    /**
+     * writer : 이호진
+     * init : 2023.04.26
+     * updated by writer :
+     * update :
+     * description : 모든 직원 정보 불러오기
+     */
+    List<Employee> findAllInfo();
 }
