@@ -57,7 +57,7 @@ public class EmployeeController {
      * update :
      * description : 직원의 이력 정보 보기
      */
-    @GetMapping("/{id}/jobhistory")
+    @GetMapping("/{id}/jobhistories")
     @ApiOperation(value = "직원 이력 정보 보기")
     public Result<EmployeeJobHistoriesFrom> watchJobHistory(@PathVariable Long id) {
         log.info("watchJobHistory employee id : {}", id);
