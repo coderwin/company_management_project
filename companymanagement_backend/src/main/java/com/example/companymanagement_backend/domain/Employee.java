@@ -93,17 +93,16 @@ public class Employee {
         this.managerId = managerId;
     }
 
+    public void addJob(Job job) {
+        this.job = job;
+    }
+
 
     // ** 연관관계 메서드 ** //
 
     public void addDepartment(Department department) {
         department.getEmployeeList().add(this);
         this.department = department;
-    }
-
-    public void addJob(Job job) {
-        job.addEmployee(this);
-        this.job = job;
     }
 
     // ** 생성 메서드 ** //

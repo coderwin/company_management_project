@@ -36,9 +36,6 @@ public class Department {
     @JoinColumn(name = "location_id")
     private Location location;// 위치
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "department")
-    private JobHistory jobHistory;// 직원 직급 정보
-
     @OneToMany(mappedBy = "department", cascade = CascadeType.PERSIST)
     private List<Employee> employeeList = new ArrayList<>();// 직원 정보
 
@@ -49,9 +46,6 @@ public class Department {
     }
     public void addManagerId(Long managerId) {
         this.managerId = managerId;
-    }
-    public void addJobHistory(JobHistory jobHistory) {
-        this.jobHistory = jobHistory;
     }
 
     // ** 연관관계 메서드 ** //
