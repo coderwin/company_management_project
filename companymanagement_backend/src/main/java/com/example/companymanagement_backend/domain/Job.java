@@ -36,8 +36,6 @@ public class Job {
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "job")
     private JobHistory jobHistory;// 직원 직급 정보
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "job")
-    private Employee employee;// 직원 정보
 
     // ** setter ** //
 
@@ -55,10 +53,6 @@ public class Job {
 
     public void addJobHistory(JobHistory jobHistory) {
         this.jobHistory = jobHistory;
-    }
-
-    public void addEmployee(Employee employee) {
-        this.employee = employee;
     }
 
     // ** 생성 메서드 ** //
