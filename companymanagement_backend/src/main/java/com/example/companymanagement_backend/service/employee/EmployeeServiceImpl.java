@@ -57,14 +57,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     /**
      * writer : 이호진
      * init : 2023.04.25
-     * updated by writer :
-     * update :
+     * updated by writer : 이호진
+     * update : 2023.04.26
      * description : 모든 직원 불러오기
+     *
+     * update : findAll -> findAllInfo 변경
+     *          - Data JPA 메서드 사용하니 jooHistory에서 에러 발생
      */
     @Override
     public List<EmployeeSummaryForm> selectList() {
         // 모든 직원 불러오기
-        List<Employee> employees = employeeJpaRepository.findAll();
+        List<Employee> employees = employeeJpaRepository.findAllInfo();
         // EmployeeSummaryForm으로 변경하기
         List<EmployeeSummaryForm> employeeSummaryFormList = employees
                 .stream()
