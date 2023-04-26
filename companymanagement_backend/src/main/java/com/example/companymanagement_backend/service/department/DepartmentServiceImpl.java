@@ -63,14 +63,17 @@ public class DepartmentServiceImpl implements DepartmentService {
      * description : 특정 부서의 급여를 특정 비율로 인상하기
      *               id : 부서 아이디
      *               increacedPct : 인상 비율
+     *
+     *               return : 부서명
      */
     @Override
     @Transactional(readOnly = false)
-    public void increaseSalary(Long id, Integer increasedPct) {
+    public String increaseSalary(Long id, Integer increasedPct) {
         // department 불러오기
         Department findDepartment = departmentJpaRepository.findById(id).orElseThrow();
         // 특정 부서 급여 인상하기
         findDepartment.increaseSalary(increasedPct);
-
+        // 인상 성공하면 부서명 보내기
+        return findDepartment.getName();
     }
 }

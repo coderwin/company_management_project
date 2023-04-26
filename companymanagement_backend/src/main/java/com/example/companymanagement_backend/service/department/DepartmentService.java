@@ -45,5 +45,5 @@ public interface DepartmentService {
      *               increacedPct : 인상 비율
      */
     @Transactional(readOnly = false)
-    void increaseSalary(Long id, Integer increasedPct);
+    String increaseSalary(Long id, Integer increasedPct);
 }
