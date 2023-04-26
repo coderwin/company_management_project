@@ -4,6 +4,7 @@ import com.example.companymanagement_backend.domain.Department;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -27,7 +28,7 @@ public class DepartmentJpaRepositoryImpl implements DepartmentJpaRepositoryCusto
 
     /**
      * writer : 이호진
-     * init : 2023.04.24
+     * init : 2023.04.25
      * updated by writer :
      * update :
      * description : 부서 및 위치 정보 불러오기
@@ -46,4 +47,5 @@ public class DepartmentJpaRepositoryImpl implements DepartmentJpaRepositoryCusto
         // Optional return
         return Optional.ofNullable(findDepartment);
     }
+
 }
