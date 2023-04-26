@@ -11,21 +11,35 @@ import java.sql.Date;
  * writer : 이호진
  * init : 2023.04.24
  * updated by writer : 이호진
- * update : 2023.04.25
+ * update : 2023.04.26
  * description : 직원 이력 정보를 정의한다.
  *
- * comment :
+ * comment : PK없이 테이블을 생성할 수 없을까?
  *
  * update : employee와의 연관관계를 변경
  *          OneToOne -> ManyToOne
+ *          @Id 생성
  */
 @Entity
 @Getter
+@Table(
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "constraintName",
+                    columnNames = {"start_date", "employee_id"}
+            )
+        }
+)
 public class JobHistory {
 
-    @Id
+    @Id @GeneratedValue
+    @Column(name = "job_history_id")
+    private Long id;// 이력 아이디
+
     @NotNull
+    @Column(name = "start_date")
     private Date startDate;// 해당 직급 시작 날짜
+
     @NotNull
     private Date endDate;// 해당 직급 마지막 날짜
 
@@ -47,4 +61,5 @@ public class JobHistory {
         employee.getJobHistoryList().add(this);
         this.employee = employee;
     }
+
 }
