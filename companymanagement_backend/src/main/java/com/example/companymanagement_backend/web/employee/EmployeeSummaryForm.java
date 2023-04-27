@@ -19,7 +19,7 @@ public class EmployeeSummaryForm {
 
     private Long id;// 직원 아이디
     private String firstName;// 성
-    private String lastname;// 이름
+    private String lastName;// 이름
     private String email;// 이메일
     private String departmentName;// 부서명
 
