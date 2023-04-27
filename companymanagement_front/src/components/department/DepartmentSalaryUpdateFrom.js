@@ -3,6 +3,7 @@ import { CustomContext } from '../../App';
 import axios from 'axios';
 import Loding from '../common/Loding';
 import { Button, Col, Container, Form, FormGroup, Navbar, Row } from 'react-bootstrap';
+import '../../css/form.css'
 
 /**
  * Department salary update component
@@ -53,7 +54,7 @@ const DepartmentSalaryUpdateFrom = () => {
       // 요청 성공
       // loding false
       setLoding(false);
-      console.log("요청 성공");
+      // console.log("요청 성공");
       // formDatas에 담기
       setFormDatas(data.data);
 
@@ -61,22 +62,22 @@ const DepartmentSalaryUpdateFrom = () => {
       // loding false
       setLoding(false);
       // 요청 실패
-      console.log("요청 실패");
-      console.log(err);
+      // console.log("요청 실패");
+      // console.log(err);
     }
   }
 
   // 부서별 급여 인상 데이터 서버로 보내기
-  function update(data) {
+  async function update(data) {
 
-    return axios.patch(
-      `${serverHost}/deparrtments`,
+    return await axios.patch(
+      `${serverHost}/departments`,
       data
     );
   }
 
   // 변경 버튼 클릭했을 때
-  function handleChangeBtnClick(e) {
+  async function handleChangeBtnClick(e) {
     // 이벤트 막기
     e.preventDefault();
     // 정말로 변경할 건지 물어보기
@@ -93,9 +94,9 @@ const DepartmentSalaryUpdateFrom = () => {
       // 요청 데이터 서버로 보내기
       try {
         // 데이터 수정
-        const response = update(updateData);
+        const response = await update(updateData);
         // 수정 성공
-        console.log("인상 성공");
+        // console.log("인상 성공");
         // loding false
         setLoding(false);
         // 수정 성공 alert창 띄우기
@@ -103,7 +104,7 @@ const DepartmentSalaryUpdateFrom = () => {
 
       } catch(err) {
         // 요청 실패
-        console.log("인상 실패");
+        // console.log("인상 실패");
         // loding false
         setLoding(false);
         // field Error 일 때
@@ -139,7 +140,6 @@ const DepartmentSalaryUpdateFrom = () => {
 
   // 입력 데이터가 바뀌면 defaultChageData 바꾸기
   function handleDataChange(e) {
-    console.log(e.target.value);
 
     setData((data) => {
       return {
@@ -160,17 +160,16 @@ const DepartmentSalaryUpdateFrom = () => {
 
   return (
     <>
-      <Container fluid>
-          <Form className="d-flex"
-            onSubmit={handleChangeBtnClick}
-          >
+      <Container>
+        <Row>
+          <Form onSubmit={handleChangeBtnClick}>
+            {/* 부서명 */}
             <Row className="d-flex justify-content-center">
-              <Col sm={8}>
+              <Col sm={3}>
                 <FormGroup
-                  as={Row}
                   className="mb-3"
                 >
-                  <Form.Label column sm="2">
+                  <Form.Label>
                     부서명
                   </Form.Label>
                   <Form.Select
@@ -195,51 +194,42 @@ const DepartmentSalaryUpdateFrom = () => {
                 </FormGroup>
               </Col>
             </Row>
-            
+            {/* 인상비율 */}
             <Row className="d-flex justify-content-center">
-              <Col sm={8}>
-                {/* 인상 비율 */}
+              <Col sm={3}>
                 <Form.Group
-                  as={Row}
                   className="mb-3"
                 >
-                  <Form.Label 
-                    column 
-                    sm="2"
-                  >
+                  <Form.Label >
                     인상비율
                   </Form.Label>
-                  <Col sm="5">
-                    <Form.Control
-                      type="number"
-                      name="increasedPct"
-                      min="0"
-                      value={data.increasedPct}
-                      placeholder="인상비율을 정하세요"
-                      onChange={handleDataChange}
-                    />
-                  </Col>
-                  {/* 에러 메시지 */}
-                  <Col className="error" sm="12">
-                    {errMsgs.itemName}
-                  </Col>
+
+                  <Form.Control
+                    type="number"
+                    name="increasedPct"
+                    min="0"
+                    value={data.increasedPct}
+                    onChange={handleDataChange}
+                  />
                 </Form.Group>
               </Col>
             </Row>
-            
-            {/* 버튼 box */}
+            {/* 에러 메시지 */}
             <Row className="d-flex justify-content-center">
-              <Col>
-                <Form.Group>
-                  <Row className="d-flex justify-content-center">
-                    <Col sm={2}>
-                      <Button type="submit">변경</Button>
-                    </Col>
-                  </Row>
+              <Col sm={3}>
+                <Form.Group className="mb-3 error">
+                  {errMsgs.increasedPct}
                 </Form.Group>
               </Col>
-            </Row>      
-          </Form>  
+            </Row>
+            {/* 버튼 box */}
+            <Row className="d-flex justify-content-center">
+              <Col sm={3} className="d-grid gap-2">
+                <Button variant="primary" type="submit" size="lg">변경</Button>
+              </Col>
+            </Row>    
+          </Form>
+        </Row>  
       </Container>
     </>
   )

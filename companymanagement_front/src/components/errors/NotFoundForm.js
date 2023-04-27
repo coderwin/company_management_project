@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import NotFoundImage from '../../images/errors/not_found.png'
 
 /**
  * NotFound component
@@ -17,7 +18,7 @@ const NotFoundForm = () => {
   /// 메서드 모음
   // "/"으로 이동
   function handleHomeClick() {
-    navigation("/employee/list");
+    navigation("/");
   }
 
   return (
@@ -25,7 +26,7 @@ const NotFoundForm = () => {
       <Row className="d-flex justify-content-center">
         <Col sm={12}>
           <Image className="img-fluid"
-            // src={}
+            src={NotFoundImage}
             alt="not_found"
           />
         </Col>
