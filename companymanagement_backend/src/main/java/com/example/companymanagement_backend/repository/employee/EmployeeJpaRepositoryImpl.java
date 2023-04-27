@@ -1,6 +1,7 @@
 package com.example.companymanagement_backend.repository.employee;
 
 import com.example.companymanagement_backend.domain.Employee;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -58,19 +59,37 @@ public class EmployeeJpaRepositoryImpl implements EmployeeJpaRepositoryCustom {
      * writer : 이호진
      * init : 2023.04.26
      * updated by writer :
-     * update :
+     * update : 2023.04.27
      * description : 모든 직원 정보 불러오기
+     *
+     * update : where 추가
+     *          - 부서별 직원 찾기
      */
     @Override
-    public List<Employee> findAllInfo() {
+    public List<Employee> findAllInfo(EmployeeSearchCond employeeSearchCond) {
         // Employee 불러오기
         List<Employee> result = query
                 .select(employee)
                 .from(employee)
                 .join(employee.department, department).fetchJoin()
+                .where(
+                        EmployeeDepartmentIdEq(employeeSearchCond.getDepartmentId())
+                )
                 .fetch();
 
         return result;
+    }
+
+    private BooleanExpression EmployeeDepartmentIdEq(Long departmentId) {
+
+        log.info("departmentId : {}", departmentId);
+
+        // 부서 id가 있으면 찾기
+        if(departmentId != null) {
+            return employee.department.id.eq(departmentId);
+        }
+        // 없으면 null 반환
+        return null;
     }
 
 }

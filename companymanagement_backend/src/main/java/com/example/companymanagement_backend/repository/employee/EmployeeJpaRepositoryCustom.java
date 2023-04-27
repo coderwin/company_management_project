@@ -28,9 +28,12 @@ public interface EmployeeJpaRepositoryCustom {
     /**
      * writer : 이호진
      * init : 2023.04.26
-     * updated by writer :
-     * update :
+     * updated by writer : 이호진
+     * update : 2023.04.27
      * description : 모든 직원 정보 불러오기
+     *
+     * update : where 추가
+     *          - 부서별 직원 찾기
      */
-    List<Employee> findAllInfo();
+    List<Employee> findAllInfo(EmployeeSearchCond employeeSearchCond);
 }
