@@ -1,4 +1,5 @@
 import React from 'react'
+import HeaderNav from '../components/header/HeaderNav';
 
 /**
  * Header page
@@ -9,9 +10,12 @@ import React from 'react'
  * description : Header page
  */
 function Header() {
+
   return (
-    <div>Header</div>
-  )
+    <>
+      <HeaderNav />
+    </>
+  );
 }
 
 export default Header
