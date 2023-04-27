@@ -1,5 +1,4 @@
 # company_management_project
-
 <!-- 설명 -->
 <div>
   <h4>&nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;에코앤리치_코딩과제(Back-End)</h4>
