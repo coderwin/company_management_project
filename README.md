@@ -29,7 +29,7 @@
 
 <!-- 프로젝트 기록 -->
 <h3>
-  <a https://puzzled-detail-b29.notion.site/_-4-24-128603847f764a2883fef7b13e2efe53" 
+  <a href="https://puzzled-detail-b29.notion.site/_-4-24-128603847f764a2883fef7b13e2efe53" 
      title="프로젝트 기록">
     :link: 프로젝트 기록
   </a>
