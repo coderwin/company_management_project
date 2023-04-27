@@ -3,7 +3,7 @@ import Loding from '../common/Loding';
 import { Col, Container, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import axios from 'axios';
 import { CustomContext } from '../../App';
-import '../../../css/form.css'
+import '../../css/form.css'
 import DepartmentBoxForm from './list/DepartmentBoxForm';
 
 /**
@@ -46,7 +46,7 @@ const DepartmentListForm = () => {
       // 요청 성공
       // loding false
       setLoding(false);
-      console.log("요청 성공");
+      // console.log("요청 성공");
       // formDatas에 담기
       setFormDatas(data.data);
 
@@ -54,8 +54,8 @@ const DepartmentListForm = () => {
       // loding false
       setLoding(false);
       // 요청 실패
-      console.log("요청 실패");
-      console.log(err);
+      // console.log("요청 실패");
+      // console.log(err);
     }
   }
 

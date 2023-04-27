@@ -10,6 +10,7 @@ import DepartmentSalaryUpdateFrom from '../../components/department/DepartmentSa
  * description : 부서의 직원 급여 수정 page
  */
 const DepartmentSalaryUpdate = () => {
+
   return (
     <DepartmentSalaryUpdateFrom />
   )
