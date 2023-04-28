@@ -160,7 +160,7 @@ const DepartmentSalaryUpdateFrom = () => {
 
   return (
     <>
-      <Container>
+      <Container className="body_margin">
         <Row>
           <Form onSubmit={handleChangeBtnClick}>
             {/* 부서명 */}

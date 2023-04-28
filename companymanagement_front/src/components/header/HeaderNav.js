@@ -21,6 +21,10 @@ const HeaderNav = () => {
   const handleChangeDepartmentSalaryClick = () => {
     navigation("/department/update/salary");
   }
+  // 미세먼지 정보 찾기
+  const handleFineDustInfoClick = () => {
+    navigation("/finedust/info");
+  }
 
   return (
     <>
@@ -41,6 +45,8 @@ const HeaderNav = () => {
                   부서급여변경
                 </NavDropdown.Item> 
               </NavDropdown>
+              {/* 미세먼지정보 */}
+              <Nav.Link onClick={handleFineDustInfoClick}>미세먼지정보</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -11,6 +11,7 @@ import DepartmentList from './pages/department/DepartmentList';
 import DepartmentDetail from './pages/department/DepartmentDetail';
 import DepartmentSalaryUpdate from './pages/department/DepartmentSalaryUpdate';
 import { createContext, useState } from 'react';
+import FineDustInfoList from './pages/finedustinfo/FineDustInfoList';
 
 // context 만들기
 export const CustomContext = createContext(null);
@@ -42,6 +43,10 @@ function App() {
             <Route path="/department/list" element={<DepartmentList />} /> 
             <Route path="/department/:id" element={<DepartmentDetail />} />
             <Route path="/department/update/salary" element={<DepartmentSalaryUpdate />} />
+
+            {/* open api */}
+            {/* finedustinfo */}
+            <Route path="/finedust/info" element={<FineDustInfoList />} />
 
             {/* 404 page */}
             <Route path="/*" element={<NotFound />} />
