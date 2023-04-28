@@ -15,7 +15,7 @@
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;Back: Java 11, Spring Boot, Spring MVC, JPA, QueryDsl, Data JPA, Swagger<br />
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;Front: react.js, React-Bootstrap, axios, async-await<br />
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;DB: MySQL, H2(dev)<br />
-  &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;Infra: AWS(EC2 - Linux 2 AMI)<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;Infra: AWS(EC2 - Linux 2 AMI), Nginx<br />
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;IDE: IntelliJ, VS Code, Git Bash<br />
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;SVC: Github <br />
 </div>
@@ -24,7 +24,7 @@
   <a href="http://54.180.169.160/" 
      title="사이트 둘러보기">
     :link: 사이트 둘러보기
-  </a>(http://)
+  </a>(http://54.180.169.160/)
 </h3>
 
 <!-- 프로젝트 기록 -->
