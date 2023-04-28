@@ -94,15 +94,15 @@ const EmployeeDetailFrom = () => {
   if(error) return (<div>요청 작업 중 에러 발생</div>);
 
   return (
-    <Container>
+    <Container className="body_margin body_text_center">
       <Row>
         {/* employee Info box */}
-        <Col sm="9">
+        <Col sm="12">
           <Form>
             <Row className="mb-3">
               <Form.Group
                 as={Col}
-                md="4"
+                md="3"
               >
                 <Form.Label>성명</Form.Label>
                 <Form.Control
@@ -111,29 +111,10 @@ const EmployeeDetailFrom = () => {
                   readOnly
                 />
               </Form.Group>
-              <Form.Group
-                as={Col}
-                md="4"
-                controlId="validationFormik102"
-                className="position-relative"
-              >
-                <Form.Label>급여</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={data.salary}
-                  readOnly
-                />
-                <span>만원</span>
-              </Form.Group>
-              <Form.Group as={Col} md="4" >
-                <Form.Label>수수료</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={data.commissionPct}
-                    readOnly
-                  />
-              </Form.Group>
-              <Form.Group as={Col} md="4" >
+            </Row>
+
+            <Row>
+              <Form.Group as={Col} md="2" >
                 <Form.Label>부서명</Form.Label>
                   <Form.Control
                     type="text"
@@ -141,10 +122,7 @@ const EmployeeDetailFrom = () => {
                     readOnly
                   />
               </Form.Group>
-            </Row>
-
-            <Row>
-              <Form.Group as={Col} md="6" >
+              <Form.Group as={Col} md="3" >
                 <Form.Label>직급명</Form.Label>
                 <Form.Control
                   type="text"
@@ -152,26 +130,31 @@ const EmployeeDetailFrom = () => {
                   readOnly
                 />
               </Form.Group>
-              <Form.Group as={Col} md="6" >
-                <Form.Label>도시명</Form.Label>
+              <Form.Group
+                as={Col}
+                md="2"
+                controlId="validationFormik102"
+                className="position-relative"
+              >
+                <Form.Label>급여</Form.Label>
                 <Form.Control
                   type="text"
-                  value={data.city}
+                  value={`${data.salary} 만원`}
                   readOnly
                 />
+              </Form.Group>
+              <Form.Group as={Col} md="1" >
+                <Form.Label>수수료</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={data.commissionPct}
+                    readOnly
+                  />
               </Form.Group>
             </Row>
 
-            <Row className="mb-3">
-              <Form.Group as={Col} md="2">
-                <Form.Label>주명</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={data.stateProvince}
-                  readOnly
-                />
-              </Form.Group>
-              <Form.Group as={Col} md="2">
+            <Row>
+              <Form.Group as={Col} md="3">
                 <Form.Label>나라명</Form.Label>
                 <Form.Control
                   type="text"
@@ -179,7 +162,26 @@ const EmployeeDetailFrom = () => {
                   readOnly
                 />
               </Form.Group>
-              <Form.Group as={Col} md="2">
+            
+              <Form.Group as={Col} md="3">
+                <Form.Label>주명</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={data.stateProvince}
+                  readOnly
+                />
+              </Form.Group>
+
+              <Form.Group as={Col} md="3" >
+                <Form.Label>도시명</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={data.city}
+                  readOnly
+                />
+              </Form.Group>
+              
+              <Form.Group as={Col} md="3">
                 <Form.Label>지역명</Form.Label>
                 <Form.Control
                   type="text"
@@ -187,8 +189,7 @@ const EmployeeDetailFrom = () => {
                   readOnly
                 />
               </Form.Group>
-            </Row>
-                  
+            </Row>          
           </Form>
         </Col>
       </Row>

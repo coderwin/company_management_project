@@ -27,7 +27,7 @@ const EmployeeListForm = () => {
   /// 상태 모음
   const [loding, setLoding] = useState(false);// 요청처리 상태
   const [data, setData] = useState(defaultData);// 검색 데이터 상태
-  const [formDatas, setFormDatas] = useState([]);// 부서 모음 데이터 상태
+  const [formDatas, setFormDatas] = useState([]);// 직원 모음 데이터 상태
   const [departmentDatas, setDepartmentDatas] = useState([]);// 부서 모음 데이터 상태
 
   /// 메서드 모음

@@ -12,6 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Department Service Impl
+ * writer : 이호진
+ * init : 2023.04.25
+ * updated by writer :
+ * update :
+ * description : Department Service Impl 구현 메소드 모음
+ */
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor

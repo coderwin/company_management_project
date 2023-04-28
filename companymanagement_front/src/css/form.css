@@ -43,6 +43,9 @@
 .body_text_left {
   text-align: left;
 }
+.body_margin {
+  margin: 20px;
+}
 
 /* 캐러셀 이미지 크기 변경 */
 /* detail -> 현재 사용 안 함 */ 

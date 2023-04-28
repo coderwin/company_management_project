@@ -94,15 +94,15 @@ const DepartmentDetailForm = () => {
   if(error) return (<div>요청 작업 중 에러 발생</div>);
 
   return (
-    <Container>
+    <Container className="body_margin body_text_center">
       <Row>
         {/* department Info box */}
-        <Col sm="9">
+        <Col sm="12">
           <Form>
             <Row className="mb-3">
               <Form.Group
                 as={Col}
-                md="4"
+                md="3"
               >
                 <Form.Label>부서명</Form.Label>
                 <Form.Control
@@ -113,7 +113,7 @@ const DepartmentDetailForm = () => {
               </Form.Group>
               <Form.Group
                 as={Col}
-                md="4"
+                md="3"
                 controlId="validationFormik102"
                 className="position-relative"
               >
@@ -124,26 +124,19 @@ const DepartmentDetailForm = () => {
                   readOnly
                 />
               </Form.Group>
-              <Form.Group as={Col} md="4" >
-                <Form.Label>거리명</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={data.locationDetailForm.streetAddress}
-                    readOnly
-                  />
-              </Form.Group>
-              <Form.Group as={Col} md="4" >
-                <Form.Label>도시명</Form.Label>
-                  <Form.Control
-                    type="text"
-                    value={data.locationDetailForm.city}
-                    readOnly
-                  />
-              </Form.Group>
+              
             </Row>
 
             <Row>
-              <Form.Group as={Col} md="6" >
+              <Form.Group as={Col} md="3">
+                <Form.Label>국가명</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={data.locationDetailForm.countryDetailForm.name}
+                  readOnly
+                />
+              </Form.Group>
+              <Form.Group as={Col} md="3" >
                 <Form.Label>주명</Form.Label>
                 <Form.Control
                   type="text"
@@ -151,22 +144,27 @@ const DepartmentDetailForm = () => {
                   readOnly
                 />
               </Form.Group>
-              <Form.Group as={Col} md="6" >
+              <Form.Group as={Col} md="2" >
+                <Form.Label>도시명</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={data.locationDetailForm.city}
+                    readOnly
+                  />
+              </Form.Group>
+              <Form.Group as={Col} md="3" >
+                <Form.Label>거리명</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={data.locationDetailForm.streetAddress}
+                    readOnly
+                  />
+              </Form.Group>
+              <Form.Group as={Col} md="1" >
                 <Form.Label>우편번호</Form.Label>
                 <Form.Control
                   type="text"
                   value={data.locationDetailForm.postalCode}
-                  readOnly
-                />
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} md="2">
-                <Form.Label>국가명</Form.Label>
-                <Form.Control
-                  type="text"
-                  value={data.locationDetailForm.countryDetailForm.name}
                   readOnly
                 />
               </Form.Group>
