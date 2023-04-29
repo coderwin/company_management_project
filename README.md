@@ -16,7 +16,7 @@
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;Front: react.js, React-Bootstrap, axios, async-await<br />
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;DB: MySQL, H2(dev)<br />
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;Infra: AWS(EC2 - Linux 2 AMI), Nginx<br />
-  &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;IDE: IntelliJ, VS Code, Git Bash<br />
+  &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;IDE: IntelliJ, VS Code, Git Bash, Postman<br />
   &nbsp;&nbsp;&nbsp;&nbsp;:arrow_forward:&nbsp;&nbsp;SVC: Github <br />
 </div>
 <!-- 사이트 링크 연결 -->
